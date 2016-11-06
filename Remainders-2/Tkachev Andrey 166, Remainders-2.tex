@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage {titlesec}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\titlespacing*{\section}{\parindent}{*4}{*4}
+
+\title{Домашнее задание 7}
+\author{Ткачев Андрей, группа 166}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\section {Задача 1}
+	Разложим 2007 на простые множители: $2007 = 223 \cdot 3 \cdot 3$. По условию задачи произведение чисел, образованных оценками выписанными подряд и разделенными знаками умножения равно 2007. Тогда в силу того, что обычно школьная оценка - число от 2 до 5 (колы не ставятся по условию) и что разложение на простые множители существует и единственно, Петя должен был выписать оценки <<2, 2, 3>> (обязательно строго подряд) и еще как-то оставшиеся две тройки. Тогда оценка в четверти у Пети выходит не очень хорошая, а именно (в допущении, что оценка за четверть  просто среднее арифметическое) $2.6$.
+	
+	\textbf{Ответ:} $2.6$.
+	
+	\section {Задача 2}
+	
+	\subsection {а)} Рассмотрим какие-нибудь последовательных чисел $b_0, b_1, ... b_n$. 
+	
+	Если $n | b_0$ - отлично произведение делится на $n$.
+	
+	 Иначе, пусть $b_0 \equiv r \mod n$. Тогда $b_1 \equiv r + 1 \mod n$ и т.д. Т.е. $b_i \equiv r + i \mod n$ $\forall i < n$. Рассмотрим тогда $b_{n - r}$, $n - r < n$.
+	 $b_{n - r} \equiv r + n - r = n \equiv 0 \mod n$. Т.е. в произведение $n$ последовательных чисел $n - r$ множитель (нумерация в порядке возрастания), где $r$ - ненулевой остаток первого из чисел, кратен $n$ $\Rightarrow$ произведение делится на $n$.
+	
+	\section{Задача 3}
+		Воспользуемся расширенным алгоритмом Евклида, чтобы решить уравнение $45x^\prime - 37y^\prime = 1$:
+		
+		$$ a_0 = 1 \cdot 45 + 0 \cdot 37 $$ 
+		$$ a_1 = 0 \cdot 45 + 1 \cdot 37 $$ 
+		$$ a_2 = 0 \cdot 45 + 1 \cdot 37 - (1 \cdot 45 + 0 \cdot 37) \cdot \lfloor\frac{45} {37}\rfloor = 1 \cdot 45 - 1 \cdot 37 = 8 $$
+		$$ a_3 = 1 \cdot 45 - 1 \cdot 37 - (0 \cdot 45 + 1 \cdot 37) \cdot \lfloor\frac{37} {8}\rfloor = -4 \cdot 45 + 5 \cdot 37 = 5 $$
+		$$ a_4 = -4 \cdot 45 + 5 \cdot 37 - (1 \cdot 45 - 1 \cdot 37) \cdot \lfloor\frac{8} {5}\rfloor = 5 \cdot 45 - 6 \cdot 37 = 3 $$
+		$$ a_5 = 5 \cdot 45 - 6 \cdot 37 - (-4 \cdot 45 + 5 \cdot 37) \cdot \lfloor\frac{5} {3}\rfloor = -9 \cdot 45 + 11 \cdot 37 = 2 $$
+		$$ a_6 = -9 \cdot 45 + 11 \cdot 37 - (5 \cdot 45 - 6 \cdot 37) \cdot \lfloor\frac{3} {2}\rfloor = 14 \cdot 45 - 17 \cdot 37 = 1 $$
+		
+		Получаем $x^\prime = 14$, $y^\prime = 17$. Покажем, что все остальные решения в целых числах имеют вид $x^{\prime\prime} = 14 + 37k$, $y^{\prime\prime} = 17 + 45k$, $k \in Z$.
+		Пусть $(x_0, y_0)$ и $(14, 17)$ - два различных решения уравнения $45x^\prime - 37y^\prime = 1$. Тогда:
+		
+		$$ 45\cdot 14 - 37\cdot 17 = 1$$ 
+		$$ 45x_0 - 37y_0 = 1$$
+		$$ \Updownarrow $$
+		$$ 45 (14 - x_0) = 37 (17 - y_0) $$
+		
+		Пусть $x_0 = 14 + n$, $y_0 = 17 + m$.
+		
+		$$ 45 n = 37 m $$
+		
+		Т.к. $ (45, 37) = 1$, то $37 | n$ и $45 | m$. Тогда $m = 45k$, т.к. по ОТА разбиение на простые множители существует и единственно, то $3:2 \cdot 5$ содержатся в множителях $m$.
+		
+		$$ 45 n = 37 \cdot 45k$$
+		$$ n = 37k$$
+		
+		От куда и получаем $x^{\prime\prime} = 14 + 37k$, $y^{\prime\prime} = 17 + 45k$.
+		Тогда решения уравнения $45x - 37y = 25$: $(25(14 + 37k), 25(17 + 45k))$.
+		
+		\textbf{Ответ:} $(25(14 + 37k), 25(17 + 45k))$, где $k \in Z$.	
+		
+		\section {Задача 4}
+		
+		\subsection {a)} $111...111 = \frac{10^{69} - 1}{9}$. Решим уравнение:
+		$$111...111 = \frac{10^{69} - 1}{9} \equiv x \mod 71$$ 
+				$$10^{69} - 1 \equiv 9x \mod 71$$
+				$$10^{70} - 10 \equiv 90x \mod 71$$
+		
+		По малой т. Ферма $10^{70} \equiv 1 \mod 71$.
+		
+				$$10^{70} - 10 \equiv 90x \mod 71$$
+				$$1 \equiv 90x + 10 \mod 71$$
+				$$-9 \equiv 90x \mod 71$$
+				$$62 \equiv 90x \mod 71$$
+				$$31 \equiv 45x \mod 71$$
+				
+		Заметим, что $ 45^{-1} \equiv 30 \mod 71$ (убедится в этом можно воспользовавшись расш. алгоритмом Евклида).
+		
+		$$ a_0 = 1 \cdot 71 + 0 \cdot 45 $$ 
+		$$ a_1 = 0 \cdot 71 + 1 \cdot 45 $$ 
+		$$ a_2 = 0 \cdot 71 + 1 \cdot 45 - (1 \cdot 71 + 0 \cdot 45) \cdot \lfloor\frac{71} {45}\rfloor = 1 \cdot 71 - 1 \cdot 45 = 26 $$
+		$$ a_3 = 1 \cdot 71 - 1 \cdot 45 - (0 \cdot 71 + 1 \cdot 45) \cdot \lfloor\frac{45} {26}\rfloor = -1 \cdot 71 + 2 \cdot 45 = 19 $$
+		$$ a_4 = -1 \cdot 71 + 2 \cdot 45 - (1 \cdot 71 - 1 \cdot 45) \cdot \lfloor\frac{26} {19}\rfloor = 2 \cdot 71 - 3 \cdot 45 = 7 $$
+		$$ a_5 = 2 \cdot 71 - 3 \cdot 45 - (-1 \cdot 71 + 2 \cdot 45) \cdot \lfloor\frac{19} {7}\rfloor = -5 \cdot 71 + 8 \cdot 45 = 5 $$
+		$$ a_6 = -5 \cdot 71 + 8 \cdot 45 - (2 \cdot 71 - 3 \cdot 45) \cdot \lfloor\frac{7} {5}\rfloor = 7 \cdot 71 - 11 \cdot 45 = 2 $$
+		$$ a_7 = 7 \cdot 71 - 11 \cdot 45 - (-5 \cdot 71 + 8 \cdot 45) \cdot \lfloor\frac{5} {2}\rfloor = -19 \cdot 71 + 30 \cdot 45 = 1 $$
+		
+		Тогда домножим $31 \equiv 45x \mod 71$ на $30$.
+			
+			$$930 \equiv 45 \cdot (45^{-1})x \mod 71$$
+			$$7 \equiv x \mod 71$$
+			
+		\textbf{Ответ:} 7.
+		
+		\subsection {б)} Согласно китайской теореме об остатках существует такой $x$, что 
+			\begin{equation*} 
+				\begin{cases}
+					x \equiv 111...111 \mod 2 \\
+					x \equiv 111...111 \mod 5 \\
+					x \equiv 111...111 \mod 7
+				\end{cases}
+			\end{equation*}
+		Причем  $x \equiv 111...111 \mod 2 \cdot 5 \cdot 7 $.
+		
+		Найдем тогда остатки $111...111$ от деления на 2, 5, 7:
+			$$1...1 = 1...10 + 1 \equiv 1 \mod 2$$
+			$$1...1 = 1...1 \cdot 2 \cdot 5 + 1 \equiv 1\mod 5$$
+			$$1...1 = 111111 \cdot k + 111  = 7 \cdot 15873  \cdot a + 111 \equiv 111 \equiv 6\mod 7$$
+	    Тогда 
+	    \begin{equation*} 
+		    \begin{cases}
+			    x \equiv 1 \mod 2 \\
+			    x \equiv 1 \mod 5 \\
+			    x \equiv 6 \mod 7
+		    \end{cases}
+	    \end{equation*}
+		
+		Поймем, что число 41 удовлетворяет сравнениям. Тогда $41 \equiv 111...111 \mod 2 \cdot 5 \cdot 7 $
+		
+		$$ 41 \equiv 111...111 \mod 70 $$
+		
+		\textbf{Ответ:} 41.
+		
+		\section{Задача 5}
+		  
+		  Посчитаем функцию Эйлера $\varphi(n)$. Пусть $n = p_0^{k_0} \cdot p_1^{k_1} \cdot ... \cdot p_m^{k_m}$. Тогда $$\varphi(n) = n \prod_{p|n}\frac{(p - 1)}{p}$$
+		  
+		  Заметим, что $\varphi(n) | n!$: если поделить $n!$ на $\varphi(n)$ получим  
+		  $$\frac {n! \prod_{p|n}p} {\prod_{p|n} (p - 1)}$$
+		  
+		  Но т.к. $\forall p, p|n: p < n \Rightarrow 1 < p - 1 < n$. Но тогда $\forall p, p|n: (p - 1)|n! $ $\Rightarrow$ $\frac {n!}{\varphi(n)} = k \in N \Rightarrow \varphi(n) | n!$
+		  
+		  Тогда, т.к. $(n, 4) = 1$ - по условию $n$ нечетное положительное, то по теореме Эйлера:
+		  $$ 4^{\varphi(n)} \equiv 1 \mod n $$
+		  
+		  Умножив это сравнение на себя $\frac {n!}{\varphi(n)} = k \in N$ раз получим:
+		  $$ (4^{\varphi(n)})^{k} \equiv 1 \mod n $$
+		  $$ 4^{n!} \equiv 1 \mod n $$
+		  $$\Updownarrow$$
+		  $$n | (4^{n!} - 1)$$		  
+		  Что и требовалось доказать.
+		  \section {Задача 7}
+			   Согласно китайской теореме об остатках для любых попарно взаимно-простых $a_1, a_2, ..., a_n$ и для любых $r_1, r_2, ..., r_n$ таких, что $0 \leqslant r_i < a_i$, существует единственный $x$, такой, что $0 \leqslant x < M = \prod_{1}^{n} a_i$ и $x$ является решением системы: 
+			\begin{equation*} 
+				   \begin{cases}
+				   x \equiv r_1 \mod a_1 \\
+				   x \equiv r_2 \mod a_2 \\
+				   \vdots
+				   \\
+				   x \equiv r_n \mod a_n
+                   \end{cases}
+			\end{equation*}
+			
+			И любой $x^\prime \equiv x \mod \prod_{1}^{n} a_i$ так же является решением этой системы. Причем каждому набору остатков соответствует один $0 \leqslant x < \prod_{1}^{n}$.
+			
+			В свете этого условие задачи можно сформулировать так: << Сколько существует $x$, таких что $0 \leqslant x \leqslant 2310000$  и для всех $a_i \in {2,3,5,7,11}$ верно $x \equiv r_{ij} \mod a_i$, где $0 < r_{ij} < a_i$>>
+			
+			Т.е найти решения системы по модулю $2310000$
+			\begin{equation*} 
+			\begin{cases}
+			x \equiv r_1 \mod 2 \\
+			x \equiv r_2 \mod 3 \\
+			x \equiv r_3 \mod 5 \\
+			x \equiv r_4 \mod 7 \\
+			x \equiv r_5 \mod 11
+			\end{cases}
+			\end{equation*}
+			
+			($x$ является решением системы $\Longleftrightarrow$ $x$ не делится на 2, 3, 5, 7, 11 и меньше 2310000, т.е. является принадлежит множеству тех чисел которые нужно посчитать по оригинальному условию). Но поймем, что для любого набора ${r_1, r_2, ..., r_5}$ существует единственное решение по модулю $2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 = 2310$ и соответственно 1000 решений по модулю $2310 \cdot 1000$. Всего наборов остатков не равных 0: $ (2 - 1) \cdot (3 - 1) \cdot (5 - 1) \cdot (7 - 1) \cdot (11 - 1) = 480$, тогда решений системы по модулю $ 2310 \cdot 1000$ ровно $480000$.
+		
+		 \textbf{Ответ:} 480000.	
+		  
+		  \section {Задача 8}
+		  
+		  Если число $n$ взаимно-просто с 10, то по теореме Эйлера:
+		  $$ 10^{\varphi(n)} \equiv 1 \mod n$$
+		  
+		  Поймем, что число $E_{\varphi(n)} = \frac{10^{\varphi(n)} - 1}{9}$ - репьюнит, и что $9E_{\varphi(n)} \equiv 0 \mod n$. Рассмотрим репьюнит из $9\varphi(n)$ единиц. 
+		  
+		  $$ E_{9\varphi(n)} = E_{\varphi(n)} \cdot 10^{8\varphi(n)} + ... + E_{\varphi(n)} \cdot 10^{\varphi(n)} + E_{\varphi(n)} = $$
+		  $$=  E_{\varphi(n)} ( 9E_{\varphi(8n)} + 1 + 9E_{\varphi(7n)} + 1 + ... +  9E_{\varphi(n)} + 1 + 1) = $$
+		  $$ = 9E_{\varphi(n)} (E_{\varphi(8n)} + E_{\varphi(7n)} + ... + E_{\varphi(n)} + 1)$$
+		  
+		  Получается $E_{9\varphi(n)} = 9E_{\varphi(n)} \cdot k \equiv 0 \mod n$. Т.е. для любых $n$ взаимно-простых с 10 существует хотя бы репьюнит кратный $n$. Поймем, что их на самом деле бесконечно много: пусть $n | E_k$, тогда $n | E_k + 10^k \cdot E_k$, т.е. $n | E_{2k}$ по индукции $n | E_{2^mk} \forall m \in N$.
+		  
+		  \textbf{Ответ:} Да, их будет бесконечно много.
+		     
+\end{document}
