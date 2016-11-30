@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage {titlesec}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+
+\titlespacing*{\section}{\parindent}{*4}{*4}
+
+\title{Домашнее задание 11}
+\author{Ткачев Андрей, группа 166}
+\date{\today}
+\newcommand{\niton}{\not\owns}
+\newcommand{\pr}{^{\prime}}
+\newcommand{\ppr}{^{\prime\prime}}
+\newcommand{\xp}{x^{\prime}}
+\newcommand{\xpp}{x^{\prime\prime}}
+\newcommand{\xppp}{x^{\prime\prime\prime}}
+\newcommand{\pair}[2]{(#1,\ #2)}
+\newcommand{\andi}{$ и $}
+\begin{document}
+	\maketitle
+	\paragraph{Задача 1.}
+		Обозначим функции $f: A \rightarrow B$, $g: C \rightarrow D$. По определению $\forall\ a \in A\ \exists!\ b \in B$, такой что $f: a \mapsto b$ и $\forall\ c \in C\ \exists!\ d \in B$, такой что $g: c \mapsto d$. Так же $f \subseteq A \times B$, $g \subseteq C \times D$.
+		
+		\subparagraph{a)} Пусть $h = f \cup g$. Тогда, $h \subseteq (A \cup C) \times (B \cup D)$. Т.е. $h = \{(x,\ y)| x \in A \cup C,\ y \in B \cup D:\ y=f(x)$ или $y=g(x)\}$. 
+		
+		Пусть $x \in A$. Докажем, что если $x \notin A \cap C$, то $\exists!\ y\in B \cup D: (x, y) \in h$. Существование $y$ вытекает из того, что $f$ - тотально, а значит, существует $y$: $(x,\ y) \in f \subseteq h$. Положим $(x,\ y) \in h$ и $(x,\ y^{\prime}) \in h$. Так как $x \notin A \cap C$ и $x \in A$, то $x \notin C$. Поэтому $(x,\ y) \notin g$ и $(x,\ y^{\prime}) \notin g \Rightarrow (x,\ y) \in f$ и $(x,\ y^{\prime}) \in f$. Но тогда $y = y^{\prime}$, т.к. $f$ - функция.
+		
+		Аналогично, если $x \in C$ и $x \notin A \cap C$, то $\exists!\ y\in B \cup D: (x, y) \in h$. 
+		
+		Рассмотрим случай, когда $x \in A \cap C$. Поймем, что если $f: x \mapsto y$, $g: x \mapsto y^{\prime}$ и $y \ne y^{\prime}$, то $h$ - не функция, т.к. $(x,\ y) \in h$ и $(x,\ y^{\prime}) \in h$. Если же $\forall x \in A \cap C$ верно, что $f: x \mapsto y$, $g: x \mapsto y^{\prime}$ влечет $y = y^{\prime}$ (т.е. $y \in B \cap D$), то $h$ - функция. Иными словами: $h$ - функция тогда и только тогда, когда $h( A \cap C) \subseteq B\cap D$. 
+		
+		\subparagraph{б)}  Пусть $h = f \cap g$. Тогда, $h \subseteq (A \cap C) \times (B \cap D)$. Т.е. $h = \{(x,\ y)| x \in A \cap C,\ y \in B \cap D:\ y=f(x)$ и $y=g(x)\}$. Но тогда $h$ - функционально в силу того, что $(x,\ y) \in h \Leftrightarrow y=f(x)=g(x)$, а такой $y$ - существует единственный так как $f$ и $g$ - тотальны(существование) функциональны(единственность).
+		
+	\paragraph{Задача 2.}
+		Покажем, что в общем случае нельзя поставить какой-то определенный знак, приведя примеры $f$ и $A$ для которых $?$ в утверждении $f^{-1}(f(A)) \subseteq A$ принимает каждое из значений $\subseteq,\ \supseteq, =$.
+		
+		\subparagraph{1)}
+		 Рассмотрим функцию $f: \{0,\ 1\} \rightarrow \{1\}$, $f = \{(0,\ 1)\}$.
+		 Тогда $f(\{0,\ 1\}) = \{1\}$, а $f^{-1}(\{1\}) = \{0\}$. Т.е. $f^{-1}(f(\{0,\ 1\})) \subseteq \{0,\ 1\}$.
+		
+		\subparagraph{2)}
+		Рассмотрим функцию $f: \{0,\ 1\} \rightarrow \{1\}$, $f = \{(0,\ 1),\ (1,\ 1)\}$. 
+		Тогда $f(\{0 \}) = \{1 \} $, а $f^{-1}(\{1\}) = \{0,\ 1\} $. Т.е. $f^{-1}(f(\{0\})) \supseteq \{0\} $.
+		
+		\subparagraph{3)}	
+		Рассмотрим функцию $f: \{0,\ 1\} \rightarrow \{2,\ 3\}$, $f = \{(0,\ 2),\ (1,\ 3)\}$. Тогда $f(\{0, 1\}) = \{2,\ 3\} $, а $f^{-1}(\{2, 3\}) = \{0,\ 1\} $. Т.е. $f^{-1}(f(\{0,\ 1\})) = \{0,\ 1\} $.
+		
+		\paragraph{Задача 3.}
+	    Рассмотрим функцию $f: \{1, 2, 3\} \rightarrow \{1, 2\}$, $f = \{(1,\ 1),\ (2,\ 2), (3, 2)\}$. Пусть $A = \{1,\ 2\},\ B = \{3\}$.Тогда $f(A \setminus B) = \{1,\ 2\}$. Однако $f(A) \setminus f(B) = \{1,\ 2\} \setminus \{2\} = \{1\}$. Т.е. $f(A \setminus B) \not\subseteq f(A) \setminus f(B)$. Значит такое включение не всегда верно.
+	    
+	    Пусть $y \in f(A) \setminus f(B)$. Тогда $y \in f(A)$ и $y \notin f(B) \Rightarrow \exists x \in A f(x) = y$, причем $x \notin B$ (иначе $y \in f(B)$) $\Leftrightarrow x \in A \setminus B$ (так как $f: A \cup B \rightarrow Y$), что влечет $f(x) = y \in f(A \setminus B)$. Значит $f(A \setminus B) \supseteq f(A) \setminus f(B)$.
+	    
+	    Таким образом, всегда верно, что $f(A \setminus B) \supseteq f(A) \setminus f(B)$.
+	    
+	    \paragraph{Задача 4.}
+		Пусть $x \in f^{-1}(A) \setminus f^{-1}(B)$. Тогда $x \in f^{-1}(A)$ и $x \notin f^{-1}(B) \Rightarrow \exists! y \in A f(x) = y$, причем $y \notin B$ (иначе $x \in f^{-1}(B)$) $\Leftrightarrow y \in A \setminus B$, что влечет $x \in f(A \setminus B)$. Значит $f(A \setminus B) \supseteq f(A) \setminus f(B)$.
+		
+		Пусть $x \in f^{-1}(A \setminus B)$. Тогда $\exists y \in A \setminus B: f(x) = y$. Это означает, что $y \in A$ и $y \notin B$ (иначе $y \notin A \setminus B$). Но тогда $x \in f^{-1}(A)$ и $x \notin f^{-1}(B)$. Значит $x \in \supseteq f(A) \setminus f(B)$. Тогда $f(A \setminus B) \subseteq f(A) \setminus f(B)$.
+		
+		Мы доказали включение в обе стороны $\Rightarrow$ $f(A \setminus B) = f(A) \setminus f(B)$. 
+		
+		\paragraph{Задача 5.}
+		\subparagraph{а)} Пусть $A = \{x_1,\ ...,\ x_a\}$, $B = \{y_1,\ ...,\ y_b\}$. Тогда $f \subseteq A \times B$ - функциональное отношение, если $\forall i \in \{1,\ ...,\ a\}:\ (x_i,\ y_k) \in f,\ (x_i,\ y_j) \Leftrightarrow k = j$. Т.е. при всех прочих фиксированных $x_i$ и их отношений для каждого $x_j$ есть $b$ вариантов функций где $x_j$ в отношении с одним из $b$ элементов мн-ва $B$ + одна функция, где $x_j$ не находится в отношениях (т.к. под функцией мы понимаем не обязательно всюду определенное отношение). Тогда всего функций $(b + 1) ^ {a}$ - для каждого элемента из $A$ существует $b + 1$ способ вступить в отношение с $B$. 
+		
+		\subparagraph{б)} Если функция $f$ из $A$ в $B$ - инъекция, то каждому $x \in A$ соответствует не более одного $y \in B$ и каждому $y \in B$ соответствует не более одного $x$ из $A$. Пусть тогда только $x$ из $\{x_{i_1},\ ..., \ x_{i_{k}}\} \subseteq A$ вступают в отношение с  элементами $B$. Для $x_{i_0}$ выбрать элемент $y_0$, такой, чтобы $(x_{i_0},\ y_0)$ можно $b$ способами, затем для $x_{i_1}$ - $b - 1$ способами и тд. Т.е. для каждого такого мн-ва $S = \{x_{i_1},\ ..., \ x_{i_{k}}\}$ из $A$ существует $[b]_k$ вариантов функциональных отношений, таких, что $S = f(B)$ ($[b]_k = b(b - 1)\cdot ... \cdot (b - k + 1)$; $k \leqslant min(a,\ b)$, иначе по принципу Дирихле каким-то различным эл-там из $A$ сопоставлен один из $B$). Всего способов выбрать $k$ элементное подмножество из $A$: ${a \choose k}$. Тогда по правилам суммы и произведения, число функций-инъекций из $A$ в $B$:
+		$$\sum_{i = 0}^{min(a,\ b)} {a \choose i}[b]_i$$
+		
+		\paragraph{Задача 6.} 
+		\subparagraph{а)}  Пусть $b \ne 0$. 
+		
+		Рассмотрим отношение $f \subseteq [0,\ 1] \times [a,\ b]$, такое, что $(x,\ y) \in f \Leftrightarrow y = bx +  a$. ($\forall x \in [0,\ 1]: a \leqslant bx + a \leqslant b$). Докажем, что $f$ - биекция. 
+		
+		Заметим, что $f$ определена на $[0,\ 1]$ и что $f$ - функция (из построения следует, что любому $x \in [0,\ 1]$ сопоставлен хотя бы один $y \in [a,\ b]$; из построения так же следует, что если  если $(x,\ y) \in f$ и $(x, y^{\prime}) \in f$, то $y = bx + a = y^{\prime}$).
+		
+		Поймем, что $f$ - инъекция. Действительно, если $(x\pr,\ y) \in f$ и $(x\ppr, y) \in f$, то $y = bx\pr + a = bx\ppr + a \Rightarrow bx\pr = bx\ppr$, а так как $b \ne 0$, то $x\pr = x\ppr$. 
+		
+		Докажем, что $f$ - сюръекция. Пусть $y \in [a,\ b]$, тогда $\exists x \in [0,\ 1]$, такой, что $y = bx + a$ - так как это уравнение имеет решение $x = \frac{y - a}{b}$, причем $0 \leqslant x \leqslant 1$ ($b \ne 0$, $0 \leqslant y - a \leqslant b \Rightarrow  0 \leqslant \frac{y - a}{b} \leqslant 1$). Т.е. $\forall y \in [a,\ b] \exists\ x \in [0,\ 1]: f(x) = y$.
+		
+		Тогда $f$ - биекция.  
+		
+		Если $b = 0$, то рассмотрим биекцию $g:[a,\ b] \rightarrow [a + 1,\ b + 1]$ (т.е. к каждому числу из $x \in [a,\ b]$ взаимно однозначно сопоставим $x + 1$ из $[a + 1,\ b + 1]$). Тогда если мы построим биекцию из $[0,\ 1]$ в $[a + 1,\ b + 1]$, то пользуясь тем фактом, что композиция биекций - биекция, мы получим биекцию из $[0,\ 1]$ в $[a,\ b]$ через $[a + 1,\ b + 1]$: $g \circ f$.
+		
+		\subparagraph{б)}
+		Пусть $A = \{a|\ a \in (0,\ 1)\};\ B = \{b|\ b \in (0, + \infty)\}$.
+	
+		Рассмотрим отношение $f$ на $A \times B$, такое, что $(x,\ y) \in f$, если $y = \frac{1}{1 - x} - 1$. Поймем, что при $x \in A,\ \frac{1}{1 - x} - 1 \in (0, + \infty)$:
+			$$\frac{1}{1 - x} - 1 > 0$$
+			$$\Updownarrow$$
+			$$\frac{x - 1}{1 - x} > 0 $$
+			$$\Updownarrow$$
+			$$x \in (0,\ 1)$$
+		
+		Тогда $\forall x \in A\ \exists y \in B:\ (x,\ y) \in f$, значит $f$ - всюду определено.
+		
+		Заметим, что $f$ - функция. Действительно, если $(x, y_0) \in f$ и $(x, y_1) \in f$, то $y_0 = \frac{1}{1 - x} - 1 = y_1$.
+		
+		Поймем, что $f$ - инъекция. В самом деле, если $\pair{x\pr}{y} \in f$ и $\pair{x\ppr}{y} \in f$, то $y = \frac{1}{1 - x\pr} - 1 = \frac{1}{1 - x\ppr} - 1 \Rightarrow$ $\frac{1}{1 - x\pr} = \frac{1}{1 - x\ppr}$, т.к. $x\pr \ne 1 \andi x\ppr \ne 1$, то $x\pr = x\ppr$.
+		
+		Докажем, что $f$ - сюръекция. Пусть $y \in B$. Покажем, что $\exists x:\ (x,\ y) \in f$: решим уравнение $\frac{1}{1 - x} - 1 = y$ на интервале $(0,\ 1)$.
+		\begin{equation*}
+		\begin{cases}
+		\frac{1}{1 - x} - 1 = y, 
+		\\
+		x \in (0,\ 1),
+		\\
+		y \in (0,\ +\infty);
+		\end{cases}
+		\end{equation*}
+		$$ \Downarrow $$
+		$$1 - 1 + x = (1 - x)y$$
+		$$x(y + 1) = y$$
+		$$x = \frac{y}{y + 1}$$
+		
+		Тогда $\forall y \in B\ \exists x \in A:\ (x,\ y) \in f \Rightarrow f $ - сюръекция. Тогда по определению $f:A \rightarrow B$ - биекция. 
+		
+		\subparagraph{в)} Сопоставим каждому элементу $x \in [0,\ 1)$, элемент $y \in (0,\ 1)$, по правилу: $y = f(x)$, причем $f(0) = \frac{1}{2}$, $f(x) = x$, если $x \ne \frac{1}{2^n},\ \forall n \in N\cup{0}$ и $f(x) = \frac{x}{2}$ иначе. Докажем, что $f:[0, 1) \rightarrow (0, 1)$ - биекция.
+		
+		Поймем, что все элементы отличные от 0 и чисел вида $\frac{1}{2^n}$ взаимно однонзначно переходят в равные себе числа, т.е. этот переход инъективен и сюръективен и функционален, т.к. отображение множества переводящее элементы самих в себя - биекция. Заметим, что числам вида $\frac{1}{2^n}$ из $[0,\ 1)$ взаимно однозначно соответствуют числа $\frac{1}{2^{n + 1}}$ из $(0,\ 1)$, а числу 0 взаимно однозначно соответствует $\frac{1}{2}$. Тогда каждому числу из $[0, \ 1)$ взаимно однозначно соответствует число из $(0,\ 1)$, т.е. $f$ - биекция.
+		
+		
+		\paragraph{Задача 7.} Докажем, что $f$ - инъекция. Пусть $f(x^{\prime}) = x$ и $f(x^{\prime\prime}) = x$. Из условия следует, что $f \circ g \circ f (x^{\prime}) = id_A (x^{\prime}) = x^{\prime}$. С другой стороны $$ x^{\prime} = f \circ g \circ f (x^{\prime}) = (f \circ g) (f(x^{\prime})) = f \circ g (x) = (f \circ g) (f(x^{\prime\prime})) = f \circ g \circ f (x^{\prime\prime}) = x^{\prime\prime}$$
+		
+		Т.е. $f(x^{\prime}) = x$ и $f(x^{\prime\prime}) = x \Leftrightarrow x^{\prime} = x^{\prime\prime}$. Значит, $f$ - инъекция. Докажем теперь, что $f$ - сюръекция. Пусть $\xp \in A$. В силу тотальности $f$ и $g$: $f(\xp) = \xpp$, $g(\xpp) = \xppp$. Но как мы знаем $f \circ g \circ f (\xp) = \xp$ и в силу ассоциативности $f \circ g \circ f (\xp) = f \circ (g \circ f ) (\xp) = f(\xppp)$. Тогда $f(\xppp) = \xp$, т.е. $\forall x^{\prime} \in A\ \exists\ x \in A:\ f:x \mapsto \xp$.
+		
+		В итоге, $f$ - функционально, тотально, инъективно и сюръективно, значит - биекция!
+		
+		\paragraph{Задача 8.} 
+		Нет, не верно. Построим пример иллюстрирующий, что $g$ не всегда всюду определена. Определим функции как $f:\{0\} \rightarrow \{0\}$ и $g:\{0,\ 1\} \rightarrow \{0\}$, причем $g = \{\pair{0}{0}\}$. Тогда очевидно, что $\forall x \in \{0\}:\ g \circ f (x) = x$. Т.е. $g \circ f = id_{\{0\}}$ Но $g$ - не всюду определена, в частности не определено $g(1)$.
+\end{document}
