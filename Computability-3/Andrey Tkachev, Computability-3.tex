@@ -1,0 +1,98 @@
+\documentclass{article}
+
+\usepackage {titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+% Offset setup %
+\usepackage[left=15mm,
+            top=15mm, 
+            right=10mm,
+            bottom=15mm, nohead, nofoot]{geometry}
+
+% Maths packages %
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% Special symbols %
+\usepackage{wasysym}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{numprint}
+
+
+% Pretty algorithm %
+\usepackage{tikz}
+\usepackage{algpseudocode}
+\usepackage[linesnumbered,boxed]{algorithm2e}
+\titlespacing*{\section}{\parindent}{*4}{*4}
+\title{Домашнее задание 22}
+\author{Ткачев Андрей, группа 166}
+\date{\today}
+\graphicspath{{pictures/}}
+
+% Other%
+\newcommand{\pr}{^{\prime}}
+\newcommand{\ppr}{^{\prime\prime}}
+\newcommand{\xp}{x^{\prime}}
+\newcommand{\xpp}{x^{\prime\prime}}
+\newcommand{\xppp}{x^{\prime\prime\prime}}
+% Alias %
+\newcommand{\pair}[2]{(#1,\ #2)}
+\newcommand{\andi}{$ и $}
+\newcommand{\xor}{\oplus}
+%\newcommand{\xor}{\oplus}%
+
+% Fracs %
+\newcommand{\half}[1]{\frac{#1}{2}}
+% Pretty Num letters%
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\conti}{2^{\N}}
+
+% Vector graphics %
+\definecolor{white}{rgb}{1.0, 1.0, 1.0}
+\definecolor{black}{rgb}{0.0, 0.0, 0.0}
+\definecolor{royalblue}{RGB}{255,170,128}
+\definecolor{lgr}{RGB}{168, 228, 160}
+\definecolor{lblue}{RGB}{24,205,255}
+
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.geometric}
+
+\pgfdeclarelayer{edgelayer}
+\pgfdeclarelayer{nodelayer}
+\pgfsetlayers{edgelayer,nodelayer,main}
+
+\tikzstyle{none}=[inner sep=0pt]
+\tikzstyle{node}=[circle,fill=white,draw=black,thick]
+\begin{document}
+    \maketitle
+	\paragraph{Задача 1}
+        Пусть $\mathcal{F}$ --- множество вычислимых функций $\N \rightarrow \N$, которые принимают значение 2017 при каком-то значение аргумента. $\mathcal{F} \ne \emptyset$ и $F \ne \mathcal{R}$ ($\mathcal{R}$ --- множество всех вычислимых функций). Тогда по теореме Успенского-Райса множество $\{p | U(p, x) \in \mathcal{F}\}$ неразрешимо, а значит бесконечно.
+    \paragraph{Задача 2} 
+		Пусть $V(p, x) = px$. $V(p, x)$ --- вычислима, значит т.к. $U$ --- главная нумерация, то $\exists$ тотальная функция $s$: $\forall x: U(s(p), x) = V(p, x) = nx$. Но тогда по теореме о неподвижной точке $\exists n: U(s(n), x) = U(n, x) \forall x$. Значит $\exists n: \forall x U(n, x) = V(n, x) = nx$.
+	\paragraph{Задача 3}
+		$V(p, x)$ --- вычислима, значит т.к. $U$ --- главная нумерация, то $\exists$ тотальная функция $s$: $\forall x: U(s(p), x) = V(p, x)$. Но тогда по теореме о неподвижной точке $\exists n: U(s(n), x) = U(n, x) \forall x$. Значит $\exists n: \forall x U(n, x) = V(n, x)$.
+	\paragraph{Задача 4}
+		Пусть $\mathcal{F}$ --- множество вычислимых функций $\N \rightarrow \N$, которые определены в 0. $\mathcal{F} \ne \emptyset$ и $F \ne \mathcal{R}$ ($\mathcal{R}$ --- множество всех вычислимых функций), т.к. очевидно есть функции, определенные в 0 и не все функции определены в 0. Тогда по теореме Успенского-Райса множество $\{p | U(p, x) \in \mathcal{F}\}$ неразрешимо. Т.е. множество программ для главной нумерации, вычисляющих определенные в 0 функции --- неразрешимо, а значит, не может совпадать с множеством четных чисел.
+	\paragraph{Задача 5}
+		%ToDo
+	\paragraph{Задача 6}
+		Примем $M = \{p| U(p, x)$ --- неопределено $\forall x\}$ (данное множество, как мы знаем, не разрешимо (по теореме Успенского-Райса), т.к. $U$ --- главная нумерация). 
+
+        Предположим, что $K$ --- разрешимо. 
+        Пусть $g(x)$ --- нигде не определенная функция. $g(x)$ --- вычислима, значит $\exists p: \forall x \in \N U(p, x) = g(x)$. Т.е. $\exists p$ --- номер функции нигде не определенной. Заметим, что если $(p, n) \in K$, то $h(x) = U_n(x)$ --- нигде не определена (действительно, если $(p, n) \in K$, то $U_p$ есть продолжение функции $U_n$; Таким образом, если $U_n$ определена в $x_0$, то и $U_p$ определена в $x_0$ $\Rightarrow$ таких $x_0$ не существует, т.к. $U_p$ нигде не определена). Верно и обратное, если $h(x) = U_n(x)$ --- нигде не опреденная функция, то $(p, n) \in K$, т.к. неопределенная функция является своим собственным продолжением. Рассмотрим тогда функцию $f$, такую что
+
+            \begin{equation*}
+              f(x) = 
+              \begin{cases} 
+                1 &\text{$(p, x) \in K$}\\
+                0 &\text{$(p, x) \notin K$}
+              \end{cases}
+            \end{equation*} 
+
+        Поймем, что $f(x)$ вычислима, т.к. $K$ по предположению разрешимо. Заметим также, что $f$ --- характеристическая функция множества $M$: действительно, если $f(x) = 1$, то $x$ --- номер нигде не определенной функции и 0, если функция $U_x$ где-то определена. Но множество $M$ не разрешимо, а значит его характерестическая функция не вычислима --- противоречие $\Rightarrow\ K$ не разрешимо.
+\end{document}
